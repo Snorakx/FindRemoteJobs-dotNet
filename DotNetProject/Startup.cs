@@ -29,6 +29,7 @@ namespace DotNetProject
             services.AddControllersWithViews();
             services.AddDbContextPool<DotNetDbContext>(
                 options => options.UseSqlServer(Configuration.GetConnectionString("AppDbConnection"), b => b.MigrationsAssembly("DotNetProject")));
+            services.AddScoped<IFavouriteJobsData, SqlFavouriteJobsData>();
             services.AddIdentity<IdentityUser, IdentityRole>()
                     .AddEntityFrameworkStores<DotNetDbContext>();
         }

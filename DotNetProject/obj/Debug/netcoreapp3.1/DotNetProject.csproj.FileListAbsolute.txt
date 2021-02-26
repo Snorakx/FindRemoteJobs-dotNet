@@ -8,7 +8,6 @@ G:\aspDotNetProject\DotNetProject\DotNetProject\bin\Debug\netcoreapp3.1\DotNetPr
 G:\aspDotNetProject\DotNetProject\DotNetProject\bin\Debug\netcoreapp3.1\DotNetProject.pdb
 G:\aspDotNetProject\DotNetProject\DotNetProject\bin\Debug\netcoreapp3.1\DotNetProject.Views.dll
 G:\aspDotNetProject\DotNetProject\DotNetProject\bin\Debug\netcoreapp3.1\DotNetProject.Views.pdb
-G:\aspDotNetProject\DotNetProject\DotNetProject\obj\Debug\netcoreapp3.1\DotNetProject.csprojAssemblyReference.cache
 G:\aspDotNetProject\DotNetProject\DotNetProject\obj\Debug\netcoreapp3.1\DotNetProject.AssemblyInfoInputs.cache
 G:\aspDotNetProject\DotNetProject\DotNetProject\obj\Debug\netcoreapp3.1\DotNetProject.AssemblyInfo.cs
 G:\aspDotNetProject\DotNetProject\DotNetProject\obj\Debug\netcoreapp3.1\DotNetProject.csproj.CoreCompileInputs.cache
@@ -84,4 +83,5 @@ G:\aspDotNetProject\DotNetProject\DotNetProject\bin\Debug\netcoreapp3.1\runtimes
 G:\aspDotNetProject\DotNetProject\DotNetProject\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 G:\aspDotNetProject\DotNetProject\DotNetProject\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
 G:\aspDotNetProject\DotNetProject\DotNetProject\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
-G:\aspDotNetProject\DotNetProject\DotNetProject\obj\Debug\netcoreapp3.1\Razor\Views\Home\JobList.cshtml.g.cs
+G:\aspDotNetProject\DotNetProject\DotNetProject\obj\Debug\netcoreapp3.1\DotNetProject.csprojAssemblyReference.cache
+G:\aspDotNetProject\DotNetProject\DotNetProject\obj\Debug\netcoreapp3.1\Razor\Views\Favourite\Index.cshtml.g.cs

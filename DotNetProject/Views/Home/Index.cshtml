@@ -1,27 +1,35 @@
 ﻿@model JobsListModel
-
 @{
     ViewBag.Title = "Index";
 }
-
 <h1>Jobs list</h1>
-
+<form asp-controller="Home" asp-action="Index" method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="SearchString">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" id="button-addon2" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+@ViewBag.Message
 <div class="row">
     <div>
-        <table class="table table-sm table-striped table-bordered m-2">
-            <tbody>
+        <div class="table table-sm table-striped table-bordered m-2">
+            <div>
                 @foreach (var r in Model.Jobs)
                 {
-                    <tr>
+                <div>
 
-                        <td>@r.Id</td>
-                        <td>@r.Title</td>
-                        <td>@r.Category</td>
-
-                    </tr>
+                    <p>@r.Id</p>
+                    <p>@r.Title</p>
+                    <p>@r.Category</p>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Home" asp-action="AddToFavourite" asp-route-url="@r.Url" asp-route-title="@r.Title" asp-route-category="@r.Category" asp-route-id="@r.Id">Dodaj do ulubionych</a>
+                    }
+                </div>
                 }
-
-            </tbody>
-        </table>
+              </div>
+          </div>
     </div>
 </div>

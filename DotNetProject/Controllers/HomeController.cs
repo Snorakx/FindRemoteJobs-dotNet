@@ -1,4 +1,5 @@
-﻿using DotNetProject.Models;
+﻿using DotNetProject.Database;
+using DotNetProject.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -13,19 +14,26 @@ namespace DotNetProject.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+    
+       
+        private readonly ILogger<HomeController> _logger;
+        private readonly IFavouriteJobsData favouriteJobsData;
+
+        public HomeController(ILogger<HomeController> logger, IFavouriteJobsData favouriteJobsData)
         {
             _logger = logger;
+
+            this.favouriteJobsData = favouriteJobsData;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             JobsListModel JobList = new JobsListModel();
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://remotive.io/api/remote-jobs"))
+                var apiUrl = searchString != null ? $"https://remotive.io/api/remote-jobs?search={searchString}" : $"https://remotive.io/api/remote-jobs?limit=10";
+                using (var response = await httpClient.GetAsync(apiUrl))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                      JobList = JsonConvert.DeserializeObject<JobsListModel>(apiResponse);
@@ -33,6 +41,21 @@ namespace DotNetProject.Controllers
             }
             return View(JobList);
         }
+
+        public IActionResult AddToFavourite(string url, string title, string category, int id )
+        {
+            var job = new UserFavouriteJob(User.Identity.Name, id, title, category, url );
+            favouriteJobsData.Add(job);
+            var commit = favouriteJobsData.Commit();
+            if(commit == 0)
+            {
+                ViewBag.Message = "ERROR";
+                return View("Error");
+            }
+                return RedirectToAction("Index");
+        }
+
+
 
         public IActionResult Privacy()
         {

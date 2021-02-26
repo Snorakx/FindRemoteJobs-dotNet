@@ -4,14 +4,16 @@ using DotNetProject.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DotNetProject.Migrations
 {
     [DbContext(typeof(DotNetDbContext))]
-    partial class DotNetDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210226195712_FavouriteJobs2")]
+    partial class FavouriteJobs2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
