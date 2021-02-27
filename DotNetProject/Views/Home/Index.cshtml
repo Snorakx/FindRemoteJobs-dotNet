@@ -1,0 +1,67 @@
+﻿@model JobsListModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+        <div class="job-table">
+                @foreach (var r in Model.Jobs)
+                {
+            <div class="list-row">
+                <div class="image-container"><img class="image" src="https://remotive.io/job/@r.Id/logo" /></div>
+                <div class="job-details">
+                    <div class="job-title">@r.Title</div>
+                    <div class="job-category">@r.Category</div>
+                </div>
+                <div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <Button class="heart-btn" onclick="AddJobToFavourite('@User.Identity.Name', '@r.Title', '@r.Category',@r.Id, '@r.Url')"><img id="heart" src="~/assets/heart.svg" /></Button>
+                    }
+                </div>
+                <div class="stripe"></div>
+
+
+            </div>
+           
+                }
+        </div>
+</div>
+
+<script type="text/javascript">
+
+    const AddJobToFavourite = async (userId, title, category, id, url) => {
+                                const UserId = userId
+                                const Title = title;
+                                const Category = category;
+                                const Id = id;
+                                const Url = url;
+
+
+                                const requestData = {
+                                    UserId,
+                                    Title,
+                                    Category,
+                                    Id,
+                                    Url
+                                }
+                                const response = await fetch('/Api/Adding', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-type': 'application/json'
+                                    },
+                                    body: JSON.stringify(requestData),
+                                });
+
+                                const responseJson = await response.json();
+
+                                if (responseJson.success) {
+                                    console.log("nice")
+                                }
+
+                                return responseJson;
+
+                            };
+
+</script>
