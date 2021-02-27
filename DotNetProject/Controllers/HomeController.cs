@@ -41,21 +41,7 @@ namespace DotNetProject.Controllers
             }
             return View(JobList);
         }
-
-        public IActionResult AddToFavourite(string url, string title, string category, int id )
-        {
-            var job = new UserFavouriteJob(User.Identity.Name, id, title, category, url );
-            favouriteJobsData.Add(job);
-            var commit = favouriteJobsData.Commit();
-            if(commit == 0)
-            {
-                ViewBag.Message = "ERROR";
-                return View("Error");
-            }
-                return RedirectToAction("Index");
-        }
-
-
+ 
 
         public IActionResult Privacy()
         {

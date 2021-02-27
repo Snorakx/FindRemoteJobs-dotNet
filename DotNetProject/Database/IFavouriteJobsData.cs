@@ -12,6 +12,9 @@ namespace DotNetProject.Database
         UserFavouriteJob Delete(int jobId, string username);
         UserFavouriteJob GetByUsernameAndId(int jobId, string username);
         IEnumerable<UserFavouriteJob> GetJobsByUsername(string username);
+
+        IEnumerable<UserFavouriteJob> GetJobsByName(string name);
+
         int Commit();
     }
 }

@@ -22,5 +22,21 @@ namespace DotNetProject.Controllers
 
             return View(favouriteJobsList);
         }
+        public IActionResult SearchJobs(string title)
+        {
+            var favouriteJobsList = favouriteJobsData.GetJobsByName(title);
+
+            return View(favouriteJobsList);
+        }
+        [HttpPost]
+        public  IActionResult DeleteFavourite(int jobId)
+        {
+            favouriteJobsData.Delete(jobId, User.Identity.Name);
+            
+             favouriteJobsData.Commit();
+
+            return RedirectToAction("Index");
+
+        }
     }
 }

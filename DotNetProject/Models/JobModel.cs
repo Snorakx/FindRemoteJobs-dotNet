@@ -8,6 +8,7 @@ namespace DotNetProject.Models
 {
     public class JobModel
     {
+
         [JsonProperty("id")]
         public int Id { get; set; }
         

@@ -56,5 +56,12 @@ namespace DotNetProject.Database
                                                  .FirstOrDefault();
 
         }
+
+        public IEnumerable<UserFavouriteJob> GetJobsByName(string name)
+        {
+            return dotNetDbContext.UserFavouriteJob.Where(x => x.Title == name)
+                                                 .Select(x => x);
+        }
+
     }
 }

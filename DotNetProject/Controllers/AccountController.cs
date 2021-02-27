@@ -1,4 +1,5 @@
 ﻿using DotNetProject.Models;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -78,6 +79,12 @@ namespace DotNetProject.Controllers
             }
 
             return View(model);
+        }
+        public async Task<IActionResult> Logout(LoginModel model)
+        {
+            await signInManager.SignOutAsync();
+                return RedirectToAction("index", "home");
+
         }
     }
 }

@@ -20,21 +20,7 @@ namespace DotNetProject.Models
 
         public string Url { get; set; }
 
-
-
-
-        public UserFavouriteJob(string userId, int jobId, string title, string category, string url)
-        {
-            UserId = userId;
-            
-            JobId = jobId;
-
-            Title = title;
-
-            Category = category;
-
-            Url = url;
-        }
+ 
     }
 
 

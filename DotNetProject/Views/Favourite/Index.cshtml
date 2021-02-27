@@ -1,5 +1,14 @@
 ﻿@model IEnumerable<UserFavouriteJob>;
 
+
+    <form method="get">
+        <div class="input-group mb-3">
+            <input type="text" class="form-control" name="SearchString">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" id="button-addon2" type="submit">Search</button>
+            </div>
+        </div>
+    </form>
 <div class="row">
     <div>
         <div class="table table-sm table-striped table-bordered m-2">
@@ -11,6 +20,7 @@
                         <p>@r.JobId</p>
                         <p>@r.Title</p>
                         <p>@r.Category</p>
+                        <button onclick="DeleteThisFavourite('@r.JobId')">DELETE</button>
                     
                     </div>
                 }
@@ -18,3 +28,33 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+   
+   
+    const DeleteThisFavourite = async (id) => {
+        const Id = id;
+
+
+        const requestData = {
+            Id,
+        }
+        const response = await fetch('/Favourite/DeleteFavourite', {
+            method: "POST",
+            headers: {
+                 'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            data: JSON.stringify(requestData)
+        });
+
+        const responseJson = await response.json();
+
+        if (responseJson.success) {
+            console.log("nice")
+        }
+
+        return responseJson;
+
+    };
+
+</script >
