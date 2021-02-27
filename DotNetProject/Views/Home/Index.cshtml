@@ -1,0 +1,30 @@
+﻿@model JobsListModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+        <div class="job-table">
+                @foreach (var r in Model.Jobs)
+                {
+            <div class="list-row">
+                <div class="image-container"><img class="image" src="https://remotive.io/job/@r.Id/logo" /></div>
+                <div class="job-details">
+                    <div class="job-title">@r.Title</div>
+                    <div class="job-category">@r.Category</div>
+                </div>
+                <div>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <Button class="heart-btn" asp-controller="Home" asp-action="AddToFavourite" asp-route-url="@r.Url" asp-route-title="@r.Title" asp-route-category="@r.Category" asp-route-id="@r.Id"><img id="heart" src="~/assets/heart.svg" /></Button>
+                    }
+                </div>
+                <div class="stripe"></div>
+
+
+            </div>
+           
+                }
+        </div>
+</div>
