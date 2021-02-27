@@ -19,8 +19,9 @@
 ## Usage
 
 1. Download and install Visual Studio on your PC
-2. Start project
-5. Wait for https://localhost:44375/
+2. Create database
+3. Start project
+4. Wait for https://localhost:44375/
     
 ## Status
 Project is:  _finished_
