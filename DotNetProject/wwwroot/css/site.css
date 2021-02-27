@@ -1,28 +1,70 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
+﻿/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+    color: #EB664C;
+    text-decoration: none !important;
+    ;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
+    a:hover {
+        color: #EB664C !important;
+    }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
 
 /* Sticky footer styles
 -------------------------------------------------- */
@@ -59,17 +101,179 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  margin: 0!important;
 }
 
 
+/*Job list site*/
 
 
+.list-row {
+    width: 95%;
+    box-shadow: 5px 10px 40px -20px #98abb7;
+    margin: 2% auto auto;
+    display: grid;
+    grid-template-columns: 15% 79% 5% 1%;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". . . .";
+}
+
+.image-container {
+    border-bottom-left-radius: .25rem;
+    align-items: center;
+    text-align: center;
+    border: none !important;
+}
+
+.image {
+    width: 10vh;
+    padding: 10% 0;
+    margin: auto;
+    object-fit: cover;
+}
+
+.job-table{
+    width: 100%;
+}
+
+.job-title {
+    font-size: 1.4rem;
+    padding: 1% 0 0;
+}
+
+.job-category {
+    font-size: 1rem;
+    padding: 1% 0 0;
+}
+
+.heart-btn {
+    border: none;
+    background: none;
+}
+
+#heart:hover {
+    background-image: url("../assets/heart-full.svg");
+    width: 80%;
+}
+
+#heart{
+    width: 80%;
+}
+
+
+
+
+.stripe {
+    background: linear-gradient( 0deg,#4e5c8d,#111f4d);
+    width: 100%;
+    position: relative;
+    border: none;
+    padding: 0;
+    float:right
+}
+
+/* navigation*/
+
+.nav.navbar.navbar-expand-sm.navbar-toggleable-sm.navbar-dark.bg-dark.border-bottom.box-shadow.mb-3 {
+    background-color: beige;
+}
+
+.logo {
+    width: 4%;
+    padding-right: 1%;
+}
+
+
+/* login form*/
+
+
+.col img {
+    width: 100%;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #EB664C !important;
+    border-color: #EB664C !important;
+}
+
+.text-danger.validation-summary-errors {
+    display: none;
+}
+
+
+.forms {
+    padding-top: 5%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: ". .";
+}
+
+.custom-img{
+    width: 100%;
+    margin: 0;
+    padding: 5%;
+}
+
+
+
+
+@media (max-width: 688px) {
+
+    .job-title {
+        font-size: 1.2rem;
+        padding: 1% 0% 0% 8%;
+    }
+
+    .job-category {
+        font-size: 1rem;
+        padding: 1.5% 0 0 8%;
+    }
+
+    .image {
+        width: 10vh;
+        padding: 12% 0;
+    }
+
+    .logo {
+        display: none;
+    }
+
+    .list-row {
+        padding-bottom: 3%;
+    }
+
+    .img-box {
+        display: none;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: ".";
+    }
+
+    .heart-btn {
+        padding-top: 4%;
+    }
+
+
+    #heart {
+        width: 2vh;
+    }
+
+    .stripe {
+        display: none;
+    }
+
+    .list-row {
+        grid-template-columns: 15% 78% 8%;
+        grid-template-rows: 1fr;
+        grid-template-areas: ". . .";
+    }
+}

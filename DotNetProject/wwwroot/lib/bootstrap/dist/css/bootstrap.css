@@ -4,6 +4,10 @@
  * Copyright 2011-2019 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+.bg-dark {
+    background-color: #0C1738 !important;
+}
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -153,15 +157,15 @@ sup {
 }
 
 a {
-  color: #007bff;
-  text-decoration: none;
-  background-color: transparent;
+    color: #EB664C;
+    text-decoration: none;
+    background-color: transparent;
 }
 
-a:hover {
-  color: #0056b3;
-  text-decoration: underline;
-}
+    a:hover {
+        color: #EB664C !important;
+        text-decoration: none;
+    }
 
 a:not([href]):not([tabindex]) {
   color: inherit;
@@ -6578,7 +6582,7 @@ button.bg-light:focus {
 }
 
 .bg-dark {
-  background-color: #343a40 !important;
+    background-color: #0C1738 !important;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,

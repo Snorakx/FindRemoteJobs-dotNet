@@ -1,37 +1,34 @@
 ﻿@model JobsListModel
+
 @{
     ViewBag.Title = "Index";
 }
-<h1>Jobs list</h1>
-<form asp-controller="Home" asp-action="Index" method="get">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" name="SearchString">
-        <div class="input-group-append">
-            <button class="btn btn-outline-secondary" id="button-addon2" type="submit">Search</button>
-        </div>
-    </div>
-</form>
+
 <div class="row">
-    <div id="success-alert" class="alert alert-success" style="display:none;">Wooo, You have done it</div>
-    <div>
-        <div class="table table-sm table-striped table-bordered m-2">
-            <div>
+        <div class="job-table">
                 @foreach (var r in Model.Jobs)
                 {
-                    <div>
+            <div class="list-row">
+                <div class="image-container"><img class="image" src="https://remotive.io/job/@r.Id/logo" /></div>
+                <div class="job-details">
+                    <div class="job-title">@r.Title</div>
+                    <div class="job-category">@r.Category</div>
+                </div>
+                <div>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <Button class="heart-btn" onclick="AddJobToFavourite('@User.Identity.Name', '@r.Title', '@r.Category',@r.Id, '@r.Url')"><img id="heart" src="~/assets/heart.svg" /></Button>
+                    }
+                </div>
+                <div class="stripe"></div>
 
-                        <p>@r.Id</p>
-                        <p>@r.Title</p>
-                        <p>@r.Category</p>
-                        <button onclick="AddJobToFavourite('@User.Identity.Name', '@r.Title', '@r.Category',@r.Id, '@r.Url')">Dodaj do ulubionych</button>
 
-                    </div>
-
-                }
             </div>
+           
+                }
         </div>
-    </div>
 </div>
+
 <script type="text/javascript">
 
     const AddJobToFavourite = async (userId, title, category, id, url) => {
