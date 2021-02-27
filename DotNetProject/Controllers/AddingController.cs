@@ -31,20 +31,35 @@ namespace DotNetProject.Controllers
                 Url = job.Url
 
             };
-
-
+          
 
             favouriteJobsData.Add(userFavouriteJob);
-            favouriteJobsData.Commit();
 
-            var response = new AddNewItemResponse()
+            var response = new AddNewItemResponse();
+
+           var x = favouriteJobsData.Commit();
+            if(x == 1)
             {
-                success = true,
-                addedJob = userFavouriteJob
-            };
+                response = new AddNewItemResponse()
+                {
+                    success = true,
+                    addedJob = userFavouriteJob
+                };
+            }
+            else
+            {
+                response = new AddNewItemResponse()
+                {
+                    success = false,
+                    addedJob = userFavouriteJob
+                };
+            }
+
+             
 
 
-            return response;
+                return response;
+          
         }
 
     }

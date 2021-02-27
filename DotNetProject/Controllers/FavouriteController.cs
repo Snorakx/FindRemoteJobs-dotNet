@@ -24,14 +24,13 @@ namespace DotNetProject.Controllers
         }
         public IActionResult SearchJobs(string title)
         {
-            var favouriteJobsList = favouriteJobsData.GetJobsByName(title);
+            var favouriteJobsList = favouriteJobsData.GetJobsByNameAndUsername(title, User.Identity.Name);
 
-            return View(favouriteJobsList);
+            return View("Index", favouriteJobsList);
         }
-        [HttpPost]
-        public  IActionResult DeleteFavourite(int jobId)
+        public  IActionResult DeleteFavourite(int id)
         {
-            favouriteJobsData.Delete(jobId, User.Identity.Name);
+            favouriteJobsData.Delete(id, User.Identity.Name);
             
              favouriteJobsData.Commit();
 

@@ -57,9 +57,9 @@ namespace DotNetProject.Database
 
         }
 
-        public IEnumerable<UserFavouriteJob> GetJobsByName(string name)
+        public IEnumerable<UserFavouriteJob> GetJobsByNameAndUsername(string name, string userId)
         {
-            return dotNetDbContext.UserFavouriteJob.Where(x => x.Title == name)
+            return dotNetDbContext.UserFavouriteJob.Where(x => x.Title.Contains(name) && x.UserId == userId)
                                                  .Select(x => x);
         }
 

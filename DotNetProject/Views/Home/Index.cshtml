@@ -3,17 +3,35 @@
 @{
     ViewBag.Title = "Index";
 }
-
+<form asp-controller="Home" asp-action="Index" method="get">
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" name="SearchString" placeholder="Hi! Are You looking for a job? U are in the best place! Seriously type something and get your dream job! :)">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" id="button-addon2" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+<div class="alert alert-success" id="succes" role="alert" style="display:none; position:fixed;z-index:10;">
+    You added to favorites, good luck!
+</div>
+<div class="alert alert-danger" id="no_succes" role="alert" style="display: none;
+        position: fixed;
+        z-index: 10;
+">
+    Oh, You have this one in Your favourites list!
+</div>
 <div class="row">
         <div class="job-table">
                 @foreach (var r in Model.Jobs)
                 {
             <div class="list-row">
                 <div class="image-container"><img class="image" src="https://remotive.io/job/@r.Id/logo" /></div>
+                <a href="@r.Url">
                 <div class="job-details">
                     <div class="job-title">@r.Title</div>
                     <div class="job-category">@r.Category</div>
                 </div>
+                </a>
                 <div>
                     @if (User.Identity.IsAuthenticated)
                     {
@@ -30,7 +48,7 @@
 </div>
 
 <script type="text/javascript">
-
+    
     const AddJobToFavourite = async (userId, title, category, id, url) => {
                                 const UserId = userId
                                 const Title = title;
@@ -56,9 +74,14 @@
 
                                 const responseJson = await response.json();
 
-                                if (responseJson.success) {
-                                    console.log("nice")
-                                }
+        if (responseJson.success) {
+
+            console.log("nice")
+            $("#succes").fadeIn(300).delay(1500).fadeOut(400);
+        } else {
+            console.log('Not nice')
+            $("#no_succes").fadeIn(300).delay(1500).fadeOut(400);
+        }
 
                                 return responseJson;
 

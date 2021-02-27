@@ -13,7 +13,7 @@ namespace DotNetProject.Database
         UserFavouriteJob GetByUsernameAndId(int jobId, string username);
         IEnumerable<UserFavouriteJob> GetJobsByUsername(string username);
 
-        IEnumerable<UserFavouriteJob> GetJobsByName(string name);
+        IEnumerable<UserFavouriteJob> GetJobsByNameAndUsername(string name, string userId);
 
         int Commit();
     }
