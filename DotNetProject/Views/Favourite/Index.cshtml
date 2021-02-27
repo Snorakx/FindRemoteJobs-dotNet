@@ -25,11 +25,11 @@
                             <div class="job-category">@r.Category</div>
                         </a>
 
-                        <a asp-controller="Favourite" asp-action="DeleteFavourite" asp-route-id="@r.JobId">DeleteFavourite</a>
+                       
                     </div>
-                        <div>
-
-                        </div>
+                    <div>
+                        <a class="trash-btn" asp-controller="Favourite" asp-action="DeleteFavourite" asp-route-id="@r.JobId"><img id="trash" src="~/assets/trash.svg" /></a>
+                    </div>
                         <div class="stripe"></div>
 
 
@@ -40,8 +40,7 @@
         </div>
 </div>
 <script type="text/javascript">
-   
-   
+
     const DeleteThisFavourite = async (id) => {
         const JobId = id;
 

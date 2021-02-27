@@ -156,8 +156,19 @@ body {
     width: 80%;
 }
 
-#heart{
+    #heart{
     width: 80%;
+}
+
+.trash-btn {
+    border: none;
+    background: none;
+    padding-top: 1%;
+}
+
+
+#trash {
+    width: 50%;
 }
 
 
@@ -264,6 +275,11 @@ body {
 
 
     #heart {
+        width: 2vh;
+    }
+
+
+    #trash {
         width: 2vh;
     }
 
